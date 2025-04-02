@@ -1,0 +1,46 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<title>Plate number converter</title>
+
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+	<header></header>
+	<section>
+			<h2>Plate number converter</h2>
+	</section>
+	<section>
+		<form name="search" id="searchForm" method="GET">
+
+			<label for="platenum">Plate Num</label><br>
+			<input type="number" name="platenum" id="platenum" value="" min="1"><br><br>
+
+			<!-- <label for="cellrow">Cell Row</label><br>
+			<input type="text" name="cellrow" id="cellrow" value="" ><br>
+
+			<label for="cellcolumn">Cell Column</label><br>
+			<input type="number" name="cellcolumn" id="cellcolumn" value="" > -->
+
+			<label for="cell">Cell</label><br>
+			<input type="text" name="cell" id="cell" value="" >
+
+			<button type="submit">Search</button>
+
+		</form>
+		
+		<div id="answer">
+		</div>
+
+	</section>
+
+	<!-- script always before closing body tag -->
+	<script src="js/scripts.js"></script>
+</body>
+</html>
+
