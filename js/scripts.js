@@ -29,13 +29,15 @@ function newCell(platenum, cellrow, cellcolumn) {
 	//===== check if in range =====
 
 	if (cellcolumn < 1 || cellcolumn > 24 || cellrow < 1 || cellrow > 16 || platenum < 1){
-		showAns("error: input out of range");
+		console.log("error: input out of range");
 		return;
 	}
 
 	//===== caculate plate number =====
 
-	let newplatenum = 1;
+	let newplatenum = platenum;
+	let newcellcolumn = cellcolumn;
+	let newcellrow = cellrow;
 	let sectioninbigplate = 1;
 
 	if (cellcolumn <= 12 && cellrow <=8) {
@@ -55,7 +57,7 @@ function newCell(platenum, cellrow, cellcolumn) {
 		sectioninbigplate = 4;
 	}
 	else{
-		showAns("pleate number error");
+		console.log("pleate number error");
 		return;
 	}
 
@@ -63,36 +65,37 @@ function newCell(platenum, cellrow, cellcolumn) {
 
 	//on the right sections, row number -12
 	if (sectioninbigplate == 2 || sectioninbigplate == 4){
-		cellcolumn -= 12;
+		newcellcolumn -= 12;
 	}
 	//on the bottom sections, column number -8
 	if (sectioninbigplate == 3 || sectioninbigplate == 4){
-		cellrow -= 8;
+		newcellrow -= 8;
 	}
 
 	//===== column adjust =====
 
-	if (cellcolumn <=5) {
-		cellcolumn += 1;
+	if (newcellcolumn <=5) {
+		newcellcolumn += 1;
 	} 
-	else if (cellcolumn >=8) {
-		cellcolumn -= 1;
+	else if (newcellcolumn >=8) {
+		newcellcolumn -= 1;
 	}else{
-		showAns("error: this is a controll column");
+		console.log("error: this is a controll column");
 		return;
 	}
 
-	showAns("Plate:" + newplatenum + "<br>Cell:" + numberToAlphabet(cellrow)+ cellcolumn);
+	// showAns("Plate:" + newplatenum + "<br>Cell:" + numberToAlphabet(cellrow)+ cellcolumn);
+	console.log( platenum + " "+ numberToAlphabet(cellrow)+ cellcolumn + " → " + newplatenum + " " + numberToAlphabet(newcellrow)+ newcellcolumn);
 
 }
 
-function showAns(ans){
-	const answer =  document.getElementById('answer');
-	while (answer.firstChild) {
-		answer.removeChild(answer.firstChild);
-	  }
-	answer.insertAdjacentHTML('beforeend', ans)
-}
+// function showAns(ans){
+// 	const answer =  document.getElementById('answer');
+// 	while (answer.firstChild) {
+// 		answer.removeChild(answer.firstChild);
+// 	  }
+// 	answer.insertAdjacentHTML('beforeend', ans)
+// }
 
 function alphabetToNumber(char) {
 	const charLower = char.toLowerCase();
@@ -106,6 +109,6 @@ function alphabetToNumber(char) {
   }
 
 function numberToAlphabet(number, isUpperCase = true) {
-const start = isUpperCase ? 65 : 97;
-return String.fromCharCode(start + number - 1);
+	const start = isUpperCase ? 65 : 97;
+	return String.fromCharCode(start + number - 1);
 }

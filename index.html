@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 
-	<title>Plate number converter</title>
+	<title>Plate Number Converter</title>
 
 	<link rel="stylesheet" href="css/styles.css">
 </head>
@@ -13,9 +13,10 @@
 <body>
 	<header></header>
 	<section>
-			<h2>Plate number converter</h2>
+			<h1>Plate Number Converter</h2>
 	</section>
 	<section>
+		<h2>Manual input</h2>
 		<form name="search" id="searchForm" method="GET">
 
 			<label for="platenum">Plate Num</label><br>
@@ -31,16 +32,22 @@
 			<input type="text" name="cell" id="cell" value="" >
 
 			<button type="submit">Search</button>
-
 		</form>
 		
 		<div id="answer">
 		</div>
+	</section>
 
+	<section>
+		<h2>Upload xlsx</h2>
+		<input type="file" id="input_dom_element">
 	</section>
 
 	<!-- script always before closing body tag -->
+	<script lang="javascript" src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 	<script src="js/scripts.js"></script>
+	<script src="js/filereader.js"></script>
+
 </body>
 </html>
 
