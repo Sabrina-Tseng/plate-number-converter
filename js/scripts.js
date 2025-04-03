@@ -30,7 +30,7 @@ function newCell(platenum, cellrow, cellcolumn) {
 	//===== check if in range =====
 
 	if (cellcolumn < 1 || cellcolumn > 24 || cellrow < 1 || cellrow > 16 || platenum < 1){
-		console.log("error: input out of range");
+		showAns("error: input out of range");
 		return;
 	}
 
@@ -58,7 +58,7 @@ function newCell(platenum, cellrow, cellcolumn) {
 		sectioninbigplate = 4;
 	}
 	else{
-		console.log("pleate number error");
+		showAns("pleate number error");
 		return;
 	}
 
@@ -81,12 +81,14 @@ function newCell(platenum, cellrow, cellcolumn) {
 	else if (newcellcolumn >=8) {
 		newcellcolumn -= 1;
 	}else{
-		console.log("error: this is a controll column");
+		showAns("error: this is a controll column");
 		return;
 	}
 
 	// console.log(platenum + " "+ numberToAlphabet(cellrow)+ cellcolumn + " → " + newplatenum + " " + numberToAlphabet(newcellrow)+ newcellcolumn);
-	showAns(platenum + " "+ numberToAlphabet(cellrow)+ cellcolumn + " → " + newplatenum + " " + numberToAlphabet(newcellrow)+ newcellcolumn);
+	// showAns(platenum + " "+ numberToAlphabet(cellrow)+ cellcolumn + " → " + newplatenum + " " + numberToAlphabet(newcellrow)+ newcellcolumn);
+	showAns(newplatenum +numberToAlphabet(newcellrow)+ newcellcolumn);
+
 
 }
 
