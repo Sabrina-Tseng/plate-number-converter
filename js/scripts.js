@@ -86,7 +86,7 @@ function newCell(platenum, cellrow, cellcolumn) {
 	}
 
 	// console.log(platenum + " "+ numberToAlphabet(cellrow)+ cellcolumn + " → " + newplatenum + " " + numberToAlphabet(newcellrow)+ newcellcolumn);
-	// showAns(platenum + " "+ numberToAlphabet(cellrow)+ cellcolumn + " → " + newplatenum + " " + numberToAlphabet(newcellrow)+ newcellcolumn);
+	console.log(platenum + " "+ numberToAlphabet(cellrow)+ cellcolumn + " → " + newplatenum + " " + numberToAlphabet(newcellrow)+ newcellcolumn);
 	showAns(newplatenum +numberToAlphabet(newcellrow)+ newcellcolumn);
 
 
