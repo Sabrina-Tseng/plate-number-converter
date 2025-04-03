@@ -3,6 +3,7 @@ const search =  document.getElementById('searchForm');
 search.addEventListener('submit', function(e){
    
 	e.preventDefault();
+	clearAns();
 
 	const platenum = search.elements.platenum;
 
@@ -84,18 +85,21 @@ function newCell(platenum, cellrow, cellcolumn) {
 		return;
 	}
 
-	// showAns("Plate:" + newplatenum + "<br>Cell:" + numberToAlphabet(cellrow)+ cellcolumn);
-	console.log( platenum + " "+ numberToAlphabet(cellrow)+ cellcolumn + " → " + newplatenum + " " + numberToAlphabet(newcellrow)+ newcellcolumn);
+	// console.log(platenum + " "+ numberToAlphabet(cellrow)+ cellcolumn + " → " + newplatenum + " " + numberToAlphabet(newcellrow)+ newcellcolumn);
+	showAns(platenum + " "+ numberToAlphabet(cellrow)+ cellcolumn + " → " + newplatenum + " " + numberToAlphabet(newcellrow)+ newcellcolumn);
 
 }
 
-// function showAns(ans){
-// 	const answer =  document.getElementById('answer');
-// 	while (answer.firstChild) {
-// 		answer.removeChild(answer.firstChild);
-// 	  }
-// 	answer.insertAdjacentHTML('beforeend', ans)
-// }
+function clearAns(){
+	const answer =  document.getElementById('answer');
+	while (answer.firstChild) {
+		answer.removeChild(answer.firstChild);
+	}
+}
+function showAns(ans){
+	const answer =  document.getElementById('answer');
+	answer.insertAdjacentHTML('beforeend', '<div>'+ans+'</div>')
+}
 
 function alphabetToNumber(char) {
 	const charLower = char.toLowerCase();

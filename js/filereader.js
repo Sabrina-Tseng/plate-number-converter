@@ -11,6 +11,7 @@
 // XLSX is a global from the standalone script
 
 async function handleFileAsync(e) {
+	
 	const file = e.target.files[0];
 	const data = await file.arrayBuffer();
 	/* data is an ArrayBuffer */
@@ -31,12 +32,14 @@ function convertSheetToJson(file) {
 	  const worksheet = workbook.Sheets[sheetName];
 	  const json = XLSX.utils.sheet_to_json(worksheet);
 	//   console.log(json);
-		processjson(json);
+	
+	processjson(json);
 	};
 	reader.readAsArrayBuffer(file);
 }
 
 function processjson(json){
+	clearAns();
 	json.forEach(element => {
 		// console.log(element);
 
